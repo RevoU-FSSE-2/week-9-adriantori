@@ -17,6 +17,8 @@ const ioredis_1 = require("ioredis");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const redisConn = new ioredis_1.Redis({
+    username: process.env.REDIS_USER || '',
+    password: process.env.REDIS_PASS || '',
     host: process.env.REDIS_HOST,
     port: +process.env.REDIS_PORT
 });
