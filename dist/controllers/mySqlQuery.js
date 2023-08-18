@@ -17,6 +17,7 @@ function mySqlQuery(query) {
                 reject({ error: err.message, statusCode: 400 }); // Use err.message to get the error message
             }
             else {
+                console.log("Connected to Database");
                 con.query(query, (err, result, fields) => {
                     con.end(); // Close the connection after querying
                     if (err) {

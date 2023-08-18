@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express";
+import { Request, Response, Router, response } from "express";
 import mySqlQuery from "./mySqlQuery";
 import { Redis } from "ioredis";
 import dotenv from "dotenv";
