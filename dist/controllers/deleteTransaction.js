@@ -18,7 +18,7 @@ const deleteTransaction = (req, res) => {
     (() => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const query = `
-                DELETE FROM revou_w9.\`transaction\`
+                DELETE FROM \`transaction\`
                 WHERE id=${req.params.id};
             `;
             const response = yield (0, mySqlQuery_1.default)(query);

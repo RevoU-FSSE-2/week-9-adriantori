@@ -6,7 +6,7 @@ const deleteTransaction = (req: Request, res: Response) => {
     (async () => {
         try {
             const query = `
-                DELETE FROM revou_w9.\`transaction\`
+                DELETE FROM \`transaction\`
                 WHERE id=${req.params.id};
             `;
             const response = await mySqlQuery(query);

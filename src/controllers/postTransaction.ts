@@ -10,7 +10,7 @@ const postTransaction = (req: Request, res: Response) => {
         (async () => {
             try {
                 const query = `
-                    INSERT INTO revou_w9.\`transaction\`
+                    INSERT INTO \`transaction\`
                     (user_id, \`type\`, amount)
                     VALUES(${user_id}, '${type}', ${amount});
                 `;

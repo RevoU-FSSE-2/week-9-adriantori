@@ -23,7 +23,7 @@ const postTransaction = (req, res) => {
         (() => __awaiter(void 0, void 0, void 0, function* () {
             try {
                 const query = `
-                    INSERT INTO revou_w9.\`transaction\`
+                    INSERT INTO \`transaction\`
                     (user_id, \`type\`, amount)
                     VALUES(${user_id}, '${type}', ${amount});
                 `;

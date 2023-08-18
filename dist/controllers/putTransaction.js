@@ -23,7 +23,7 @@ const putTransaction = (req, res) => {
         (() => __awaiter(void 0, void 0, void 0, function* () {
             try {
                 const query = `
-                    UPDATE revou_w9.\`transaction\`
+                    UPDATE \`transaction\`
                     SET user_id=${user_id}, \`type\`='${type}', amount=${amount}
                     WHERE id=${req.params.id};
                 `;

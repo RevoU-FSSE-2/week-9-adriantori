@@ -10,7 +10,7 @@ const putTransaction = (req: Request, res: Response) => {
         (async () => {
             try {
                 const query = `
-                    UPDATE revou_w9.\`transaction\`
+                    UPDATE \`transaction\`
                     SET user_id=${user_id}, \`type\`='${type}', amount=${amount}
                     WHERE id=${req.params.id};
                 `;
