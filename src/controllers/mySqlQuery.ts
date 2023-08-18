@@ -22,7 +22,7 @@ export default function mySqlQuery(query: string): Promise<QueryResponse> {
             if (err) {
                 reject({ error: err.message, statusCode: 400 }); // Use err.message to get the error message
             } else {
-                console.log("Connected to Database");
+                console.log("Connected to Database!");
                 con.query(query, (err, result: any, fields) => {
                 con.end(); // Close the connection after querying
 
