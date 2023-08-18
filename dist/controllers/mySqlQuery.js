@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mysql_1 = __importDefault(require("mysql"));
+const mysql2_1 = __importDefault(require("mysql2"));
 function mySqlQuery(query) {
     return new Promise((resolve, reject) => {
-        const con = mysql_1.default.createConnection({
+        const con = mysql2_1.default.createConnection({
             host: process.env.SQL_HOST,
             user: process.env.SQL_USER,
             password: process.env.SQL_PASS,
@@ -31,7 +31,7 @@ function mySqlQuery(query) {
             }
         });
         con.on('error', (err) => {
-            reject({ error: err.message, statusCode: 503 }); // Use err.message to get the error message
+            reject({ error: err, statusCode: 503 }); // Use err.message to get the error message
         });
     });
 }

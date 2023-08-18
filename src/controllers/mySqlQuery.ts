@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 interface QueryResponse {
     error?: string;
@@ -23,7 +23,7 @@ export default function mySqlQuery(query: string): Promise<QueryResponse> {
                 reject({ error: err.message, statusCode: 400 }); // Use err.message to get the error message
             } else {
                 console.log("Connected to Database");
-                con.query(query, (err, result, fields) => {
+                con.query(query, (err, result: any, fields) => {
                 con.end(); // Close the connection after querying
 
                     if (err) {
@@ -36,7 +36,7 @@ export default function mySqlQuery(query: string): Promise<QueryResponse> {
         });
 
         con.on('error', (err) => {
-            reject({ error: err.message, statusCode: 503 }); // Use err.message to get the error message
+            reject({ error: err, statusCode: 503 }); // Use err.message to get the error message
         });
     });
 }
