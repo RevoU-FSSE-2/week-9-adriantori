@@ -14,7 +14,8 @@ export default function mySqlQuery(query: string): Promise<QueryResponse> {
             host: process.env.SQL_HOST,
             user: process.env.SQL_USER,
             password: process.env.SQL_PASS,
-            database: process.env.SQL_DB
+            database: process.env.SQL_DB,
+            port: +process.env.SQL_PORT!
         });
 
         con.connect((err) => {
