@@ -57,13 +57,16 @@ const getUserId = (req, res) => {
                 `;
                 const response = yield (0, mySqlQuery_1.default)(query);
                 const row = response.result[0];
-                if (row.length !== 0 || row !== undefined) {
+                if (row === undefined) {
+                    res.status(404).send("Data not found / empty");
+                }
+                else if (row.length !== 0 || row !== undefined || row !== null) {
                     yield redisConn.hset(userKey, row);
                     yield redisConn.expire(userKey, 60);
                     res.status(response.statusCode).send(row);
                 }
                 else {
-                    res.status(404).send("Data not found / empty");
+                    res.status(500).send("Uncaught fatal error");
                 }
             }
             catch (error) {
