@@ -1,4 +1,4 @@
-# RevoU Week 8 Assignment
+# RevoU Week 9 Assignment
 
 Creates simple financial tracker API using ExpresJS & Typescript, also connects it with MySQL database and Redis for caching.
 
