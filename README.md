@@ -163,8 +163,8 @@ CREATE TABLE `transaction` (
 
 ```sql
 INSERT INTO `user` (name,address) VALUES
-	 ('admin','surabaya'),
-	 ('toni','bekasi');
+     ('admin','surabaya'),
+     ('toni','bekasi');
 ```
 
 ### MySQL Initial Data : import query transaction
@@ -173,16 +173,35 @@ INSERT INTO `user` (name,address) VALUES
 
 ```sql
 INSERT INTO `transaction` (user_id,`type`,amount) VALUES
-	 (2,'income',200000.0),
-	 (1,'income',250000.0),
-	 (2,'expense',250000.0),
-	 (1,'income',100000.0),
-	 (1,'income',60000.0),
-	 (1,'expense',50000.0),
-	 (1,'expense',60000.0),
-	 (1,'expense',60000.0),
-	 (1,'expense',60000.0);
+     (2,'income',200000.0),
+     (1,'income',250000.0),
+     (2,'expense',250000.0),
+     (1,'income',100000.0),
+     (1,'income',60000.0),
+     (1,'expense',50000.0),
+     (1,'expense',60000.0),
+     (1,'expense',60000.0),
+     (1,'expense',60000.0);
 ```
+
+## Redis Data
+
+When user GET/user/:id, back-end will check if data is on Redis or not, if not, then it will insert data to Redis database. For example:
+
+```
+https://adriantori-w9-be.up.railway.app/user/1
+IF data not exist: Insert data below to Redis
+    KEY: user:1
+    "id": 1,
+    "name": "admin",
+    "address": "surabaya,
+    "balance": 180000,
+    "expense": 230000
+ELSE GET data from Redis
+```
+
+Once data are inserted, we can see what's the key and value inside our Redis database:
+![](assets/img/README/2023-08-19-08-17-17-image.png)
 
 ## Deploy Link
 
